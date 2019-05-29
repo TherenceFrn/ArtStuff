@@ -10,9 +10,6 @@
 //
 // });
 
-console.log('Lancement du script');
-
-
 var contenu = [
   ['Illustrator', 4],
   ['Photoshop', 1],
@@ -58,11 +55,30 @@ for (var i = 0; i < contenu.length; i++) {
 
     console.log(y+'.'+extension);
 
-    contenuPage = contenuPage + '<div class="col-sm-4"><div class="card" style="width:100%"><img src="'+y+'.'+extension+'"><div class="card-body"><h4 class="card-title">Imgur</h4><p class="card-text">Exemple</p><a target="blank" href="https://therencefrn.github.io/ArtStuff/'+y+'.'+extension+'" class="text-primary">https://therencefrn.github.io/ArtStuff/'+y+'.'+extension+'</a></div></div></div>';
+    contenuPage = contenuPage + '<div class="col-sm-4"><div class="card" style="width:100%"><img class="image-page" src="'+y+'.'+extension+'"><div class="card-body"><h4 class="card-title">Imgur</h4><p class="card-text">Exemple</p><a target="blank" href="https://therencefrn.github.io/ArtStuff/'+y+'.'+extension+'" class="text-primary">https://therencefrn.github.io/ArtStuff/'+y+'.'+extension+'</a></div></div></div>';
     compteCol++;
   }
 
   var divCible = "#"+logiciel;
+  contenuPage = contenuPage + '</div></div>';
   $(divCible).after(contenuPage);
 
 }
+
+
+
+$(document).ready(function () {
+
+    $('.image-page').on('click', function(){
+
+        var varImage = $(this).attr('src');
+        console.log(varImage);
+
+        $('.modale-image img').attr('src', varImage);
+        $('.modale-image').fadeIn();
+
+        $('.modale-image').on('click', function(){
+            $(this).fadeOut();
+        })
+    });
+})
