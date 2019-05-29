@@ -10,6 +10,8 @@
 //
 // });
 
+console.log('Lancement du script');
+
 
 var contenu = [
   ['Illustrator', 4],
